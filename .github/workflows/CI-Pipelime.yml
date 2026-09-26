@@ -1,1 +1,30 @@
 
+name: Angular-Ci
+on:
+  push:
+      branches:
+        - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: setup node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: npm
+    - name: install dependencies
+      run: npm ci
+
+    - name: build angular application
+      run: npm run build
+      
+  
