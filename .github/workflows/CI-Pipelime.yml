@@ -3,10 +3,10 @@ name: Angular-Ci
 on:
   push:
       branches:
-        - master
+        - childbranch
   pull_request:
     branches:
-      - master
+      - childbranch
 
 jobs:
   build:
